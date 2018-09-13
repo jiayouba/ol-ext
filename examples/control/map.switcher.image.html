@@ -22,6 +22,7 @@
 	
 	<!-- ol-ext -->
     <link rel="stylesheet" href="../../dist/ol-ext.css" />
+    <link rel="stylesheet" href="../../dist/my.css" />
 	<script type="text/javascript" src="../../dist/ol-ext.js"></script>
 
 	<link rel="stylesheet" href="../style.css" />
@@ -68,6 +69,20 @@
 					visible: false
 				});
 
+    var osm2 = new ol.layer.Tile(
+        {	title: "OSM222",
+            baseLayer: true,
+            source: new ol.source.OSM(),
+            visible: false
+        });
+
+    var osm3 = new ol.layer.Tile(
+        {	title: "OSM33",
+            baseLayer: true,
+            source: new ol.source.OSM(),
+            visible: false
+        });
+
 	// GeoJSON layer with a preview attribute
 	var vectorSource = new ol.source.Vector(
 	{	url: '../data/fond_guerre.geojson',
@@ -91,7 +106,8 @@
 			({	zoom: 6,
 				center: [173664, 6166327]
 			}),
-			layers: [stamen, osm, vector]
+//			layers: [stamen, osm, vector]
+			layers: [stamen, osm,osm2,osm3]
 		});
 
 	// Add a new Layerswitcher to the map
